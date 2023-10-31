@@ -1,0 +1,58 @@
+{%extends 'base.html'%}
+{% block titulo %}{{ contato.nome }}  {{ contato.sobrenome }} | {% endblock %}
+{%block conteudo%}
+<h1 class="mt-5">{{ contato.nome }} {{ contato.sobrenome }}</h1>
+
+    {% if contato.foto %}
+    <p>
+      <img src="{{contato.foto.url}}" style="max-widht: 250px; height: 250px;">
+    </p>
+    {% endif %}
+    <dl>
+      <dt>ID</dt>
+      <dd>{{ contato.id }}</dd>
+
+      <dt>Telefone</dt>
+      <dd>{{ contato.telefone }}</dd>
+
+      <dt>CPF</dt>
+      <dd>{{ contato.cpf }}</dd>
+
+      <dt>E-mail</dt>
+      <dd>{{ contato.email }}</dd>
+
+      <dt>Data de nascimento</dt>
+      <dd>{{ contato.data_nascimento|date:'d/m/Y H:i:s' }}</dd>
+
+      <dt>Entrada na Staff</dt>
+      <dd>{{ contato.entrada_staff|date:'d/m/Y H:i:s' }}</dd>
+
+      <dt>Categoria</dt>
+      <dd>{{ contato.categoria }}</dd>
+
+      <dt>Descrição</dt>
+      <dd>
+        {{ contato.descricao }}
+        </dd>
+
+      <dt>Identidade</dt>
+
+
+
+
+    </dl>
+
+    {% if contato.identidade_front %}
+    <p>
+      <img src="{{contato.identidade_front.url}}" style="max-widht: 250px; height: 250px;">
+    </p>
+    {% endif %}
+
+    {% if contato.identidade_back %}
+
+    <p>
+      <img src="{{contato.identidade_back.url}}" style="max-widht: 250px; height: 250px;">
+    </p>
+    {% endif %}
+
+{%endblock%}
